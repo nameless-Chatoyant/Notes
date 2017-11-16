@@ -1,0 +1,12 @@
+---
+title: Imbalanced Classes Issue
+tags:
+---
+
+好比你的体育老师布置了今天的数学作业，90道10以内加减法以及10道，
+
+
+## Class Imbalance与Model Initialization
+在模型初始化的过程中，。如果数据存在样本不平衡的问题，这里就会导致
+
+# Evaluation Approaches
