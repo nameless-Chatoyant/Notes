@@ -30,7 +30,7 @@ L(I,S)=-\sigmalogpt(S_t)
 ## GAN
 [Generative Adversarial Text to Image Synthesis](https://arxiv.org/abs/1605.05396)
 100多
-[StackGAN- Text to Photo-realistic Image Synthesis with Stacked Generative Adversarial Networks](https://arxiv.org/abs/1612.03242)
+[StackGAN: Text to Photo-realistic Image Synthesis with Stacked Generative Adversarial Networks](https://arxiv.org/abs/1612.03242)
 100多
 [Towards Diverse and Natural Image Descriptions via a Conditional GAN](https://arxiv.org/abs/1703.06029)
 
