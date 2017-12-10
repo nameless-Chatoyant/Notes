@@ -140,6 +140,8 @@ $$J^H_q = \Sigma_{p = 1}J^L_pM(x^s_p-x_q)M(y^s_p-y_q)$$
 使用Forward Warping的方式，整合了Backward Warping + Interpolation的多步变换。
 
 ## Detail Fusion Net
+$$L_(SR) = \Sigma^T_{i=-T}k_i||I^H_0 - I^{(i)}_0||^2_2$$
+
 分为三个模块Encoder, ConvLSTM, Decoder
 
 经过SPMC层后，我们得到一张HR尺寸的图，但是由于Forward Warping+upsampling这张图是稀疏的（论文中也举例长宽扩大4倍的话，大约15/16的像素值为0）。接下来我们就要通过不同帧提供的稀疏矩阵来生成一张细节丰富的图。
@@ -160,8 +162,9 @@ $$I^{(i)}_0 = Net_D(g_i, S^E_i;\theta_D) + I^{L\uparrow}_0$$
 
    只用$L_{ME}$，$\lambda_1 = 0.01$，70,000 iterations
 
-2. 训练
+2. 训练Detail Fusion Net
 
    冻结$\theta_{ME}$，20,000 iterations
 
 3. 整体训练，
+
