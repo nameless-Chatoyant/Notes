@@ -6,13 +6,13 @@ mathjax: true
 # 目录
 - [概述](#概述)
 - [前置技能点](#前置技能点)
-  - [STFT & ISTFT](#STFT & ISTFT)
+  - [STFT & ISTFT](#前置技能点-STFT&ISTFT)
 - [方法](#方法)
 - [总结](#总结)
 - [附录](#附录)
   - [各方法demo](#附录-各方法demo)
-  - [论文整理](#论文整理)
-  - [参考](#参考)
+  - [论文整理](#附录-论文整理)
+  - [参考](#附录-参考)
 
 # 概述
 Singing Voice Separation, 顾名思义从音乐中分离人声和伴奏。在信号处理学科，属于Blind Source Separation, 即不从信号混合过程获得额外信息，从一组混合后的信号分离出源信号来。一组混合信号到多组源信号，从信息量来说是一个由少到多的过程，所以又与Music Information Retrieval挂钩。
@@ -24,7 +24,7 @@ Singing Voice Separation, 顾名思义从音乐中分离人声和伴奏。在信
 - 目标不明确。何为人声何为伴奏？举一个最典型的例子，阿卡贝拉的伴奏同样是人声制造的，人声和伴奏之间的差别其实是很难定义的。
 - 如果利用有监督学习的方法。数据量小。获取训练数据的成本高。
 
-
+应用：
 - 自动校音(automatic pitch correction)
 - 自唱评分(singing skill evaluation for Karaoke)
 - 哼唱查询(query-by-humming)
@@ -197,5 +197,6 @@ mask
       > Arxiv(31 Oct 2017) | GAN的第一次尝试
 
 ## 参考
-- [音樂資訊檢索](http://mac.citi.sinica.edu.tw/~yang/teaching/lecture11_separation.pdf): 中央研究所的slides
+- [Performance measurement in blind audio source separation](https://hal.inria.fr/inria-00544230/document): Evaluation Metrics部分
+- [音樂資訊檢索](http://mac.citi.sinica.edu.tw/~yang/teaching/lecture11_separation.pdf): 中央研究所的lecture slide
 - [陈德成](https://www.citi.sinica.edu.tw/pages/takshingchan/index_zh.html)博士(Tak-Shing T. Chan)

@@ -115,7 +115,7 @@ sub-pixel upscale
 将`(H, W, 32)`的feature map压缩到`(H*4, W*4, 2)`
 
 原论文中的loss
-改进loss:$$L_{ME} = \Sigma^T_{i=-T}||I^L_i - I^L_{0\rightarrow i}||_1 + \lambda_1 ||\nabla F_{i\rightarrow 0}||_1$$
+改进loss:$$L_{ME} = \Sigma^T_{i=-T}\parallel I^L_i - I^L_{0\rightarrow i}\parallel _1 + \lambda_1 \parallel \nabla F_{i\rightarrow 0}\parallel _1$$
 
 
 ## SPMC Layer
@@ -140,7 +140,7 @@ $$J^H_q = \Sigma_{p = 1}J^L_pM(x^s_p-x_q)M(y^s_p-y_q)$$
 使用Forward Warping的方式，整合了Backward Warping + Interpolation的多步变换。
 
 ## Detail Fusion Net
-$$L_(SR) = \Sigma^T_{i=-T}k_i||I^H_0 - I^{(i)}_0||^2_2$$
+$$L_(SR) = \Sigma^T_{i=-T}k_i\parallel I^H_0 - I^{(i)}_0\parallel ^2_2$$
 
 分为三个模块Encoder, ConvLSTM, Decoder
 
@@ -168,3 +168,26 @@ $$I^{(i)}_0 = Net_D(g_i, S^E_i;\theta_D) + I^{L\uparrow}_0$$
 
 3. 整体训练，
 
+
+# 坑
+一般做了，即把值为0~1的图转为-0.5~0.5的范围
+
+# warp
+warpping过程会有无映射的坐标需要填值，不管填什么值都会对loss有影响，最好还是计算warp loss时用mask把这部分像素滤掉
+以
+上移的程度还不够，填补带来的loss和真loss就平衡了，导致MotionEstimation收敛在较高的loss
+
+1. 像素范围(-0.5, 0.5)，空映射填0，正常计算warp loss
+2. 像素范围(0, 1.0)，空映射填0，正常计算warp loss
+3. 只计算有映射像素的warp loss
+第二种情况，空映射对loss的影响会更大，导致在cost还很高的时候就收敛了
+
+同样的loss公式，三种情况的loss： 3 < 1 < 2
+
+用来说明情况1和2的差别
+```python
+a = np.arange(0.0, 1.0, 1.0/100)
+b = np.arange(-0.5, 0.5, 1.0/100)
+sum_a = np.sum(np.abs(0 - a)) # 49.50
+sum_b = np.sum(np.abs(0 - b)) # 25.00
+```
