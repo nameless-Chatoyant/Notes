@@ -10,7 +10,6 @@ mathjax: true
 - [方法](#方法)
 - [总结](#总结)
 - [附录](#附录)
-  - [各方法demo](#附录-各方法demo)
   - [论文整理](#附录-论文整理)
   - [参考](#附录-参考)
 
@@ -31,13 +30,12 @@ Singing Voice Separation, 顾名思义从音乐中分离人声和伴奏。在信
 - 歌唱合成(singing synthesis)，例如V家
 
 ## 相关会议
-- ISMIR(International Society for Music Information Retrieval)
-- MIREX(Music Information Retrieval Evaluation)
-  ~2013 Melody Extraction (Separation-based Methods)
-  2014~2016 Singing Voice Separation
+- ICASSP
+  > As ranked by Google Scholar's h-index metric in 2016, ICASSP has the highest h-index of any conference in Signal Processing field.
+    2019.3.12 ~ 2019.3.17, DDL未定
+- ISMIR & MIREX
 
 ## 相关论文
-
 
 [Vocal Activity Informed Singing Voice Separation With the iKala Dataset](https://pdfs.semanticscholar.org/cde4/791e5da32f8c26c02f4828943325e8471dc0.pdf)
 [Informed Group-Sparse Representation for Singing Voice Separation](http://mac.citi.sinica.edu.tw/ikala/chan17spl.pdf)
@@ -70,9 +68,7 @@ $$NSDR(S_e, S_r, S_m) = SDR(S_e, S_r) - SDR(S_m, S_r)$$
 
 # 前置技能点
 ## STFT & ISTFT
-
 STFT的全称是short-term Fourier transform，即短时傅里叶变换。
-
 ISTFT则是inverse short-term Fourier transform，反短时傅里叶变换。
 
 # 方法
@@ -170,31 +166,26 @@ mask
 
 
 # 附录
-## 各方法demo
-[Deep Clustering and Conventional Networks for Music Separation: Stronger Together](https://arxiv.org/abs/1611.06265)
-
-|   方法    |                   DEMO                   |
-| :-----: | :--------------------------------------: |
-| Chimera | [在线 \| 静态](http://danetapi.com/chimera)  |
-|  U-Net  | [静态](http://mirg.city.ac.uk/codeapps/vocal-source-separation-ismir2017) |
-| SVSGAN  | [在线](http://mirlab.org:8080/demo/SVSGAN/) \| [静态](http://mirlab.org:8080/demo/SVSGAN/svsgan_paper_result.html) |
-
 ## 论文整理
-每一部分按更新日期倒序，每一篇论文概括一下要点，尽量放上code，不特意说明的话就是官方code
 
-- 深度学习
-  - CNN
-    - [Singing Voice Separation with Deep U-Net Convolutional Networks](https://ismir2017.smcnus.org/wp-content/uploads/2017/10/171_Paper.pdf)
-      > ISMIR 2017 | 引入U-Net架构
-    - [Deep Karaoke: Extracting Vocals from Musical Mixtures Using a Convolutional Deep Neural Network](https://arxiv.org/abs/1504.04658)
-      > 比较了有监督NMF和CNN的性能 | [jaidevd/deep_kareoke_source_separation](https://github.com/jaidevd/deep_kareoke_source_separation)
-  - RNN
-    - [Monaural Singing Voice Separation with Skip-Filtering Connections and Recurrent Inference of Time-Frequency Mask](https://arxiv.org/abs/1711.01437)
-      > 后处理中把generalized Wiener filtering改进成可学习的filtering | [Js-Mim/mss_pytorch](https://github.com/Js-Mim/mss_pytorch)
-    - [Singing-Voice Separation From Monaural Recordings Using Deep Recurrent Neural Networks](http://paris.cs.illinois.edu/pubs/huang-ismir2014.pdf)
-  - GAN
-    - [SVSGAN: Singing Voice Separation via Generative Adversarial Network](https://arxiv.org/abs/1710.11428)
-      > Arxiv(31 Oct 2017) | GAN的第一次尝试
+- 2015-04-17 | Andrew J.R. Simpson *et al.* **“Deep Karaoke: Extracting Vocals from Musical Mixtures Using a Convolutional Deep Neural Network”** [arXiv](https://arxiv.org/abs/1504.04658) [code](https://github.com/jaidevd/deep_kareoke_source_separation)
+  > 有监督NMF和CNN对比
+
+- ISMIR2014 | Po-Sen Huang *et al.* **"Singing-Voice Separation From Monaural Recordings Using Deep Recurrent Neural Networks"** [pdf](http://paris.cs.illinois.edu/pubs/huang-ismir2014.pdf)
+
+- 2016-11-18 | Yi Luo, Zhuo Chen *et al.* **”Deep Clustering and Conventional Networks for Music Separation: Stronger Together“** [arXiv](https://arxiv.org/abs/1611.06265) [demo](http://danetapi.com/chimera)
+  > chimera，后续论文经常拿来做baseline
+
+- 2017-10-31 | Zhe-Cheng Fan *et al.* **"SVSGAN: Singing Voice Separation via Generative Adversarial Network"** [arXiv](https://arxiv.org/abs/1710.11428) [demo](http://mirlab.org:8080/demo/SVSGAN/) [static](http://mirlab.org:8080/demo/SVSGAN/svsgan_paper_result.html)
+
+- 2017-11-04 | Stylianos Ioannis Mimilakis *et al.* **"Monaural Singing Voice Separation with Skip-Filtering Connections and Recurrent Inference of Time-Frequency Mask"** [arXiv](https://arxiv.org/abs/1711.01437) [code](https://github.com/Js-Mim/mss_pytorch)
+  > 后处理中把generalized Wiener filtering改进成可学习的filtering
+
+- ISMIR 2017 | Andreas Jansson *et al.* **"Singing Voice Separation with Deep U-Net Convolutional Networks"** [pdf](https://ismir2017.smcnus.org/wp-content/uploads/2017/10/171_Paper.pdf) [demo](http://mirg.city.ac.uk/codeapps/vocal-source-separation-ismir2017)
+  > vocal和non-vocal分别训练
+
+- ICASSP2018 | Hyeong-seok Choi *et al.* **"Singing Voice Separation using Generative Adversarial Networks"** [pdf](http://media.aau.dk/smc/wp-content/uploads/2017/12/ML4AudioNIPS17_paper_21.pdf) [demo](https://kkp15.github.io/)
+  > GAN, G用U-Net, D用全卷积
 
 ## 参考
 - [Performance measurement in blind audio source separation](https://hal.inria.fr/inria-00544230/document): Evaluation Metrics部分
