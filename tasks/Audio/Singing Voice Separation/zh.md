@@ -13,6 +13,8 @@ mathjax: true
   - [论文整理](#附录-论文整理)
   - [参考](#附录-参考)
 
+Music Source Separation
+
 # 概述
 Singing Voice Separation, 顾名思义从音乐中分离人声和伴奏。在信号处理学科，属于Blind Source Separation, 即不从信号混合过程获得额外信息，从一组混合后的信号分离出源信号来。一组混合信号到多组源信号，从信息量来说是一个由少到多的过程，所以又与Music Information Retrieval挂钩。
 

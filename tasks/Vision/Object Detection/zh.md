@@ -6,6 +6,8 @@ Object Detection
 
 # 发展流程
 RCNN
+
+# One-Staged Methods
 YOLO
 YOLOv2
-# 
+# Two-Staged Methods

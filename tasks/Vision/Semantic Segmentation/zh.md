@@ -1,0 +1,1 @@
+- [Semantic Image Segmentation with Deep Convolutional Nets and Fully Connected CRFs](https://arxiv.org/pdf/1412.7062.pdf)

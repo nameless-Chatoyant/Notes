@@ -39,6 +39,9 @@ backward warping 目标图像到源图像
 Motion Estimation(ME) Module得optical flow
 SPMC layer根据optical flow warp原图并resize
 Detail Fusion Net从多张LR的大图中还原细节得到HR的结果
+# 前置技能点
+- Super Resolution综述
+- Forward Warp和Backward Warp
 # 模型
 ## Backward Warping与Forward Warping
 第一部分并不讲网络中的模块，而是模块当中会用到的两种warping方法。按字面意思，在已知F_a->b的前提下，Backward Warping是由b求a，Forward Warping是由a求b.

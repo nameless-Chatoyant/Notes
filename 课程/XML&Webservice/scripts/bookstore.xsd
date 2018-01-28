@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+targetNamespace="http://www.w3school.com.cn"
+xmlns="http://www.w3school.com.cn"
+elementFormDefault="qualified">
+
+    <xs:complexType name="MagazineType">
+        <xs:element name="Title" type="xs:string"/>
+        <xs:element name="Date" type="xs:gYear"/>
+    </xs:complexType>    
+
+    <xs:complexType name="BookType">
+        <xs:element name="Title" type="xs:string"/>
+        <xs:element name="Author" type="xs:string"/>
+        <xs:element name="Date" type="xs:gYear"/>
+        <xs:element name="ISBN" type="xs:string"/>
+        <xs:element name="Publisher" type="xs:string"/>
+    </xs:complexType>
+
+    <xs:element note="BookStore">
+        <xs:complexType>
+            <xs:element name="Magazine" type="MagazineType" maxOccurs="unbounded"/>
+            <xs:element name="Book" type="BookType" maxOccurs="unbounded"/>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
