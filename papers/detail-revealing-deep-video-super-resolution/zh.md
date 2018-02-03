@@ -170,6 +170,7 @@ $$I^{(i)}_0 = Net_D(g_i, S^E_i;\theta_D) + I^{L\uparrow}_0$$
    冻结$\theta_{ME}$，20,000 iterations
 
 3. 整体训练，
+	$lambda_2 = 0.01$
 
 
 # 坑
@@ -194,3 +195,7 @@ b = np.arange(-0.5, 0.5, 1.0/100)
 sum_a = np.sum(np.abs(0 - a)) # 49.50
 sum_b = np.sum(np.abs(0 - b)) # 25.00
 ```
+
+
+目前(2018.1.31)作者还没有给出全部代码，从预测代码可以看出
+只做了单通道(y)的SR，Cb和Cr通道的图像用bicubic插值得到

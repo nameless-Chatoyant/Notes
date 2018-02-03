@@ -15,7 +15,7 @@ mathjax: true
 
 Music Source Separation
 
-# 概述
+# Overview
 Singing Voice Separation, 顾名思义从音乐中分离人声和伴奏。在信号处理学科，属于Blind Source Separation, 即不从信号混合过程获得额外信息，从一组混合后的信号分离出源信号来。一组混合信号到多组源信号，从信息量来说是一个由少到多的过程，所以又与Music Information Retrieval挂钩。
 
 不同于深度学习在视觉领域的火热，Singing Voice Separation的算法都还相当依赖于传统算法，模型复杂效果不尽如人意，留给深度学习的进步空间还很大。
@@ -31,7 +31,7 @@ Singing Voice Separation, 顾名思义从音乐中分离人声和伴奏。在信
 - 哼唱查询(query-by-humming)
 - 歌唱合成(singing synthesis)，例如V家
 
-## 相关会议
+## References
 - ICASSP
   > As ranked by Google Scholar's h-index metric in 2016, ICASSP has the highest h-index of any conference in Signal Processing field.
     2019.3.12 ~ 2019.3.17, DDL未定
@@ -61,7 +61,7 @@ $$NSDR(S_e, S_r, S_m) = SDR(S_e, S_r) - SDR(S_m, S_r)$$
 
 可以使用[BSS Eval](http://bass-db.gforge.inria.fr/bss_eval/)
 
-## 数据集
+## Datasets
 |                   数据集                    |  说明  |
 | :--------------------------------------: | :--: |
 | [MIR-1K](https://sites.google.com/site/unvoicedsoundseparation/mir-1k) |      |
